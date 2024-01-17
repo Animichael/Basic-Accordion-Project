@@ -1,0 +1,104 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing: border-box;
+}
+body{
+    background: #333;
+    width:100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: 14px;
+    gap: 5px;
+    position: relative;
+}
+.accordion-main-content{
+    width: 50%;
+    height: auto;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 20px;
+    transition: .5s;
+    animation: michael;
+    animation-duration: .5s;
+}
+.accordion-main-content .title{
+    margin-bottom: 30px;
+    color: darkgrey;
+    display: flex;
+    justify-content: space-between;
+}
+.title .btn-close{
+    color:red;
+    font-size: 16px;
+    cursor: pointer;
+}
+.accordion-main-content .accordion-inner-content .questions{
+    margin-bottom: 10px;
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px solid black;
+}
+.accordion-main-content .accordion-inner-content .questions:hover{
+    margin-bottom: 10px;
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px solid black;
+    color: darkorange;
+}
+.accordion-main-content .accordion-inner-content .questions::after{
+    content: "+";
+    cursor: pointer;
+}
+
+.accordion-main-content .accordion-inner-content .answer{
+    margin-bottom: 10px;
+    line-height: 1.5;
+    height: 0px;
+    overflow: hidden;
+}
+.accordion-inner-content{
+    transition: .5s;
+}
+
+@keyframes michael{
+    from {
+        top: -300px;
+        opacity: 0;
+    }
+  to {
+       top: 40%;
+       opacity: 1;
+  }
+}
+/* Javascript styling link*/
+.accordion-main-content .accordion-inner-content.active .answer{
+    height: auto;
+    transition: .5s;
+}
+.accordion-main-content .accordion-inner-content.active .questions::after{
+   content: '-';
+   cursor: pointer;
+}
+.accordion-main-content .accordion-inner-content.active .questions{
+    font-size: 12px;
+    transition: .5s;
+}
+
+.button-show{
+    margin-top: 30px;
+    position: absolute;
+    top: 70%;
+}
+.button-show button{
+    padding:10px;
+    background-color: darkgrey;
+    border: none;
+    border-radius: 8px;
+    transition: .5s;
+    cursor: pointer;
+}
